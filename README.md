@@ -6,3 +6,4 @@ O sistema deverá registrar as quilometragens das viagens realizadas por uma det
 
 # Diagrama de classes
 
+![Diagrama de classes](https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1#G1lPCMHg66RqJBXXJkyJyOywIYHlEzAE7O)
