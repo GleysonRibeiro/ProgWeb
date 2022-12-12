@@ -15,3 +15,7 @@ O sistema deverá registrar as quilometragens das viagens realizadas por uma det
 
 ![Restrições da classe Atendimento](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7%C3%B5es_Atendimento.PNG)
 
+# Relacionamentos
+
+O objeto Equipamento deve estar relacionado de 1 para 1 com o objeto Veiculo. O objeto Atendimento deve estar relacionado de n para 1 ao objeto Equipamento.
+
