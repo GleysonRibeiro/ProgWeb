@@ -9,5 +9,9 @@ O sistema deverá registrar as quilometragens das viagens realizadas por uma det
 ![Diagrama de classes](https://github.com/GleysonRibeiro/ProgWeb/blob/6775ebeed50ca6c4862e3440c20af626e2dd6b79/docs/apontamentos.drawio.png)
 
 # Restrições
-![Documento de restrições](https://docs.google.com/document/d/1EulPD7cb0sbxC4FCOlX2B5MYNK33bQh4TLE33ZYHfMQ/edit?usp=sharing)
+![Restrições da classe Equipamento](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7oes_Equipamento.PNG)
+
+![Restrições da classe veículo](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7%C3%B5es_Veiculo.PNG)
+
+![Restrições da classe Atendimento](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7%C3%B5es_Atendimento.PNG)
 
