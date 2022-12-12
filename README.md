@@ -6,7 +6,8 @@ O sistema deverá registrar as quilometragens das viagens realizadas por uma det
 
 # Diagrama de classes
 
-![Diagrama de classes](https://github.com/GleysonRibeiro/ProgWeb/blob/f0b36fc757f00a55c433b62c66649e8ee1d1f0cf/apontamentos.drawio.png)
+![Diagrama de classes](https://github.com/GleysonRibeiro/ProgWeb/blob/6775ebeed50ca6c4862e3440c20af626e2dd6b79/docs/apontamentos.drawio.png)
 
 # Restrições
+![Documento de restrições](https://docs.google.com/document/d/1EulPD7cb0sbxC4FCOlX2B5MYNK33bQh4TLE33ZYHfMQ/edit?usp=sharing)
 
