@@ -8,5 +8,4 @@ public class equipamento {
 	private String tipo;
 	private String area;
 	
-
 }
