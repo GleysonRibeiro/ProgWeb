@@ -1,6 +1,6 @@
 package br.iff.apontamentos;
 
-public class atendimento {
+public class Atendimento {
 	
 	private int numero;
 	private equipamento equipamento;
@@ -10,6 +10,13 @@ public class atendimento {
 	private int qtdPassageiros;
 	private int odometroIni;
 	private int odometroFim;
+	
+	public Atendimento(int numero, String data) {
+		
+		this.numero = numero;
+		this.data = data;		
+	}
+	
 	public int getNumero() {
 		return numero;
 	}

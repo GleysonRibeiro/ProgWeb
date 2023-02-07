@@ -1,14 +1,17 @@
 package br.iff.apontamentos.controller.apirest;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import br.iff.apontamentos.Atendimento;
 
 @RestController
-@RequestMapping(path = "/apirest/equipamento")
+@RequestMapping(path = "/apirest/atendimento")
 
 
 public class ControllerAtendimento {
@@ -18,12 +21,15 @@ public class ControllerAtendimento {
 		return "Olá Mundo" + id;
 	}
 	
-	@PostMapping("/new")
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
 	public String newAtendimento(
-			@RequestParam(name = "nome") String nome,
-			@RequestParam(name = "sobrenome") String sobrenome			
+			@RequestParam(name = "numero") int numero,
+			@RequestParam(name = "data") String data
 	) {
-		return "Parametros:" + nome + sobrenome;
+		Atendimento novoAtendimento = new Atendimento(numero, data);
+		
+		return "Equipamento:" + numero + data;
 	}
 
 }
