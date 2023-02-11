@@ -6,6 +6,12 @@ public class veiculo {
 	private String placa;
 	private String modelo;
 	private int odometro;
+	
+	public veiculo (int prefixo) {
+		this.prefixo = prefixo;
+	}
+	
+	
 	public int getPrefixo() {
 		return prefixo;
 	}

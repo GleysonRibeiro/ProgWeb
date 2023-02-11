@@ -7,6 +7,11 @@ public class equipamento {
 	private int regime;
 	private String tipo;
 	private String area;
+	
+	public equipamento (int numero) {
+		this.numero = numero;
+	}
+	
 	public int getNumero() {
 		return numero;
 	}
