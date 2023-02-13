@@ -5,4 +5,6 @@
     <fullyQualifiedTypeName name="br.iff.apontamentos.atendimento"/>
     <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseStatus"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.equipamento"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.veiculo"/>
 </qualifiedTypeNameHistroy>

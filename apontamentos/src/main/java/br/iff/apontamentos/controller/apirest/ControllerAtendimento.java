@@ -1,14 +1,17 @@
 package br.iff.apontamentos.controller.apirest;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.iff.apontamentos.Atendimento;
+import br.iff.apontamentos.equipamento;
 
 @RestController
 @RequestMapping(path = "/apirest/atendimento")
@@ -27,9 +30,32 @@ public class ControllerAtendimento {
 			@RequestParam(name = "numero") int numero,
 			@RequestParam(name = "data") String data
 	) {
+		@SuppressWarnings("unused")
 		Atendimento novoAtendimento = new Atendimento(numero, data);
 		
-		return "Equipamento:" + numero + data;
+		return "Atendimento:" + numero + data;
 	}
+	
+	@PutMapping
+	public String atualizarAtendimento(
+			@RequestParam(name = "numero") int numero,
+			@RequestParam(name = "equipamento") equipamento equipamento, 
+			@RequestParam(name= "data") String data,
+			@RequestParam(name= "kmRodado") int kmRodado,
+			@RequestParam(name= "horaExtra") double horaExtra,
+			@RequestParam(name= "qtdPassageiros") int qtdPassageiros,
+			@RequestParam(name= "odometroIni") int odometroIni,
+			@RequestParam(name= "odometroFim") int odometroFim){
+						
+		
+		return "Atendimento atualizado:" + numero;	
+	}
+	
+	@DeleteMapping
+	public String deletarAtendimento(@RequestParam(name="numero") int numero) {
+		return "Atendimento deletado:" + numero;
+	}
+	
+	
 
 }
