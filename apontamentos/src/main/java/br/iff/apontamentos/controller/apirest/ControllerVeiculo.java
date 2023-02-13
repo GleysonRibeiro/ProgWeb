@@ -34,7 +34,7 @@ public class ControllerVeiculo {
 		return "Veiculo:" + prefixo;
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	public String atualizarVeiculo(
 			@RequestParam(name = "prefixo") int prefixo,
 			@RequestParam(name = "placa") String placa, 
@@ -44,7 +44,7 @@ public class ControllerVeiculo {
 		return prefixo + placa + modelo + odometro;		
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public String deletarVeiculo(@RequestParam(name="prefixo") int prefixo) {
 		return "Veículo deletado:" + prefixo;
 	}

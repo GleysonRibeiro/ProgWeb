@@ -33,7 +33,7 @@ public class ControllerEquipamento {
 		return "Equipamento:" + numero;
 	}
 	
-	@PutMapping
+	@PutMapping("/{id}")
 	public String atualizarEquipamento(
 			@RequestParam(name = "numero") int numero,
 			@RequestParam(name = "veiculo") veiculo veiculo, 
@@ -44,7 +44,7 @@ public class ControllerEquipamento {
 		return numero + regime + tipo + area;		
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/{id}")
 	public String deletarEquipamento(@RequestParam(name="numero") int numero) {
 		return "Equipamento deletado:" + numero;
 	}
