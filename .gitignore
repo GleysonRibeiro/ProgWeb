@@ -30,3 +30,7 @@
 hs_err_pid*
 replay_pid*
 /.metadata/
+.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi
+*.xmi
+*.index
+*.txt
