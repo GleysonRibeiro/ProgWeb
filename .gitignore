@@ -17,6 +17,11 @@
 *.ear
 *.zip
 *.tar.gz
+
+# Ignorar arquivos de metadados
+.DS_Store
+.Thumbs.db
+
 *.rar
 *.metadata/
 *.db

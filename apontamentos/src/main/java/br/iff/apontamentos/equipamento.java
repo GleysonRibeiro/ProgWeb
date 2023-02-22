@@ -1,6 +1,16 @@
 package br.iff.apontamentos;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+//@Entity
 public class equipamento {
+	
+	//@Id
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
 	private int numero;
 	private veiculo veiculo;
