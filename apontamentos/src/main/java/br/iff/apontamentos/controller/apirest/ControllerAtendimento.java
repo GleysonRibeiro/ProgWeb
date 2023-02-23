@@ -1,5 +1,7 @@
 package br.iff.apontamentos.controller.apirest;
 
+import java.time.LocalDate;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.iff.apontamentos.Atendimento;
-import br.iff.apontamentos.equipamento;
+
 
 @RestController
 @RequestMapping(path = "/apirest/atendimento")
@@ -28,7 +30,7 @@ public class ControllerAtendimento {
 	@ResponseStatus(HttpStatus.CREATED)
 	public String newAtendimento(
 			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "data") String data
+			@RequestParam(name = "data") LocalDate data
 	) {
 		@SuppressWarnings("unused")
 		Atendimento novoAtendimento = new Atendimento(numero, data);
@@ -38,14 +40,11 @@ public class ControllerAtendimento {
 	
 	@PutMapping("/{id}")
 	public String atualizarAtendimento(
-			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "equipamento") equipamento equipamento, 
+			@RequestParam(name = "numero") int numero, 
 			@RequestParam(name= "data") String data,
 			@RequestParam(name= "kmRodado") int kmRodado,
 			@RequestParam(name= "horaExtra") double horaExtra,
-			@RequestParam(name= "qtdPassageiros") int qtdPassageiros,
-			@RequestParam(name= "odometroIni") int odometroIni,
-			@RequestParam(name= "odometroFim") int odometroFim){
+			@RequestParam(name= "qtdPassageiros") int qtdPassageiros){
 						
 		
 		return "Atendimento atualizado:" + numero;	

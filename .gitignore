@@ -37,3 +37,11 @@ replay_pid*
 *.resources
 *.xmi
 *.ser
+*.resources
+*.xmi
+*.index
+*.index
+*.txt
+*.xml
+*.xml
+*.properties
