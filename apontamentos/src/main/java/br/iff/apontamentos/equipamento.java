@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 @Entity
 public class equipamento {
@@ -16,10 +18,12 @@ public class equipamento {
 	private Long id;
 	
 	private int numero;
+	@OneToOne
 	private veiculo veiculo;
 	private int regime;
 	private String tipo;
 	private String area;
+	@OneToMany
 	private List<Atendimento> atendimentos = new ArrayList<>();
 	
 	public equipamento (int numero) {

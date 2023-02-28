@@ -51,3 +51,16 @@ replay_pid*
 *.xmi
 *.resources
 *.ini
+*.resources
+*.prefs
+*.prefs
+*.xmi
+*.index
+*.index
+.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps
+*.txt
+*.dat
+*.lifecyclemapping
+*.properties
+*.ser
+*.container
