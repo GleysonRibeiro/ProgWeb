@@ -25,13 +25,8 @@ public class Veiculo {
     this.modelo=modelo;
 	}
 
-  public void alterarCadastro (String placa, String modelo){
+  public void alterarCadastro (String placa){
     this.placa=placa;
-    this.modelo=modelo;
-  }
-	
-	
-	
-	
+  }	
 
 }
