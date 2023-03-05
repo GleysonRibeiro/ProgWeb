@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import br.iff.apontamentos.equipamento;
-import br.iff.apontamentos.veiculo;
+import br.iff.apontamentos.Equipamento;
+import br.iff.apontamentos.Veiculo;
 
 @RestController
 @RequestMapping(path = "/apirest/equipamento")
@@ -28,7 +28,7 @@ public class ControllerEquipamento {
 	public String newEquipamento(
 			@RequestParam(name = "numero") int numero)
 	{
-		equipamento novoEquipamento = new equipamento(numero);
+		Equipamento novoEquipamento = new Equipamento(numero);
 		
 		return "Equipamento:" + numero;
 	}
@@ -36,7 +36,7 @@ public class ControllerEquipamento {
 	@PutMapping("/{id}")
 	public String atualizarEquipamento(
 			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "veiculo") veiculo veiculo, 
+			@RequestParam(name = "veiculo") Veiculo veiculo, 
 			@RequestParam(name= "regime") int regime,
 			@RequestParam(name= "tipo") String tipo,
 			@RequestParam(name= "area") String area){

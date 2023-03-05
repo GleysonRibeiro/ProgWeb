@@ -1,8 +1,7 @@
 package br.iff.apontamentos.controller.apirest;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
+
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -32,7 +31,7 @@ public class ControllerAtendimento {
 	@ResponseStatus(HttpStatus.CREATED)
 	public String newAtendimento(
 			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "data") String data
+			@RequestParam(name = "data") LocalDate data
 	) {
 		@SuppressWarnings("unused")
 		Atendimento novoAtendimento = new Atendimento(numero, data);
@@ -43,7 +42,7 @@ public class ControllerAtendimento {
 	@PutMapping("/{id}")
 	public String atualizarAtendimento(
 			@RequestParam(name = "numero") int numero, 
-			@RequestParam(name= "data") String data,
+			@RequestParam(name= "data") LocalDate data,
 			@RequestParam(name= "kmRodado") int kmRodado,
 			@RequestParam(name= "horaExtra") double horaExtra,
 			@RequestParam(name= "qtdPassageiros") int qtdPassageiros){

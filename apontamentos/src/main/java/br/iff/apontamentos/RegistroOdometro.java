@@ -1,14 +1,15 @@
 package br.iff.apontamentos;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-
-
-
+import jakarta.validation.constraints.Min;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,18 +25,20 @@ public class RegistroOdometro {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	//@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime dataInicial;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataInicial;
 	
-	//@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime horaInicial;
+	private LocalTime horaInicial;	
 	
-	//@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime dataFinal;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private LocalDate dataFinal;
 	
-	//@Temporal(TemporalType.TIMESTAMP)
-	private LocalDateTime horaFinal;
+	private LocalTime horaFinal;
+	
+	@Min(0)
 	private int odometroInicial;
+	
+	@Min(0)
 	private int odometroFinal;
 	
 	
@@ -44,8 +47,18 @@ public class RegistroOdometro {
 		
 	}
 	
-	
-	
+	public int deslocar(LocalDate dataInicial, LocalDate dataFinal, LocalTime horaInicial, LocalTime horaFinal, int odometroInicial, int odometroFinal) {
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
+		this.horaInicial = horaInicial;
+		this.horaFinal = horaFinal;
+		this.odometroInicial = odometroInicial;
+		this.odometroFinal = odometroFinal;
+		
+		return this.odometroFinal - this.odometroInicial;		
+		
+	}
+		
 }
 	
 

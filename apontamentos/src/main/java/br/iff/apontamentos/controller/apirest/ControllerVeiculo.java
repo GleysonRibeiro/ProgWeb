@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import br.iff.apontamentos.veiculo;
+import br.iff.apontamentos.Veiculo;
 
 @RestController
 @RequestMapping(path = "/apirest/veiculo")
@@ -26,10 +26,12 @@ public class ControllerVeiculo {
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public String newVeiculo(
-			@RequestParam(name = "prefixo") int prefixo)
+			@RequestParam(name = "prefixo") int prefixo,
+			@RequestParam(name = "placa") String placa,
+			@RequestParam(name = "modelo") String modelo)
 	{
 		@SuppressWarnings("unused")
-		veiculo novoVeiculo = new veiculo(prefixo);
+		Veiculo novoVeiculo = new Veiculo(prefixo, placa, modelo);
 		
 		return "Veiculo:" + prefixo;
 	}
