@@ -1,6 +1,8 @@
 package br.iff.apontamentos.controller.apirest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,14 +12,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-
-
 import br.iff.apontamentos.Veiculo;
+import br.iff.apontamentos.repository.VeiculoRepository;
+
 
 @RestController
 @RequestMapping(path = "/apirest/veiculo")
 
 public class ControllerVeiculo {
+	
+	@Autowired
+    private VeiculoRepository veiculos;
 
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
@@ -25,15 +30,15 @@ public class ControllerVeiculo {
 	}
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public String newVeiculo(
+	public ResponseEntity<Veiculo> newVeiculo(
 			@RequestParam(name = "prefixo") int prefixo,
 			@RequestParam(name = "placa") String placa,
-			@RequestParam(name = "modelo") String modelo)
-	{
-		@SuppressWarnings("unused")
-		Veiculo novoVeiculo = new Veiculo(prefixo, placa, modelo);
+			@RequestParam(name = "modelo") String modelo){
 		
-		return "Veiculo:" + prefixo;
+		Veiculo novoVeiculo = new Veiculo(prefixo, placa, modelo);
+		veiculos.save(novoVeiculo);
+		
+		return ResponseEntity.status(HttpStatus.CREATED).body(novoVeiculo);
 	}
 	
 	@PutMapping("/{id}")
