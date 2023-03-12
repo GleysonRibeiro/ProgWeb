@@ -28,7 +28,8 @@ public class ControllerEquipamento {
 	public String newEquipamento(
 			@RequestParam(name = "numero") int numero)
 	{
-		Equipamento novoEquipamento = new Equipamento(numero);
+		Equipamento novoEquipamento = new Equipamento();
+		novoEquipamento.novoEquipamento(numero);
 		
 		return "Equipamento:" + numero;
 	}

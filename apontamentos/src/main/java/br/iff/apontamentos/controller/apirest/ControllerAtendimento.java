@@ -34,7 +34,8 @@ public class ControllerAtendimento {
 			@RequestParam(name = "data") LocalDate data
 	) {
 		@SuppressWarnings("unused")
-		Atendimento novoAtendimento = new Atendimento(numero, data);
+		Atendimento novoAtendimento = new Atendimento();
+		novoAtendimento.novoAtendimento(numero, data);
 		
 		return "Atendimento:" + numero + data;
 	}

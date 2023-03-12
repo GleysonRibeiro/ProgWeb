@@ -1,5 +1,7 @@
 package br.iff.apontamentos;
 
+
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,7 +33,14 @@ public class Veiculo {
 	@Size(max = 20)
 	private String modelo;
 	
-	public Veiculo (int prefixo, String placa, String modelo) {
+	public Veiculo() {
+		
+	}
+	
+	
+	
+	
+	public void novoVeiculo (int prefixo, String placa, String modelo) {
 		this.prefixo = prefixo;
 		this.placa=placa;
 		this.modelo=modelo;

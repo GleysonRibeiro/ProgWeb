@@ -45,8 +45,11 @@ public class Atendimento {
 	@OneToMany
 	private List<RegistroOdometro> deslocamentos = new ArrayList<>();
 	
+	public Atendimento() {
+		
+	}
 	
-	public Atendimento(int numero, LocalDate data) {
+	public void novoAtendimento(int numero, LocalDate data) {
 		
 		this.numero = numero;
 		this.data = data;

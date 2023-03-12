@@ -19,7 +19,7 @@ public class VeiculoViewController {
 	private VeiculoRepository veiculosRepository;
 	
 	@GetMapping(path = "/{id}")
-	public String editar(@PathVariable("id") Long id, Model model) {
+	public String buscarVeiculo(@PathVariable("id") Long id, Model model) {
 		model.addAttribute("veiculo", veiculosRepository.findById(id));
 		return "formVeiculo";
 	}

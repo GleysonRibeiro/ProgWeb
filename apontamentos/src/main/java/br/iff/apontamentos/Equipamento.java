@@ -50,7 +50,11 @@ public class Equipamento {
 	@OneToMany
 	private List<Atendimento> atendimentos = new ArrayList<>();
 	
-	public Equipamento (int numero) {
+	public Equipamento () {
+		
+	}
+	
+	public void novoEquipamento (int numero) {
 		this.numero = numero;
 	}
 	
