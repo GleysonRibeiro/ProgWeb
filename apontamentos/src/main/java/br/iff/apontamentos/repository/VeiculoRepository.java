@@ -1,11 +1,14 @@
 package br.iff.apontamentos.repository;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.iff.apontamentos.veiculo;
+import br.iff.apontamentos.Veiculo;
+
 
 @Repository
-public interface VeiculoRepository extends JpaRepository<veiculo, Long> {
+public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
+	
 
 }
