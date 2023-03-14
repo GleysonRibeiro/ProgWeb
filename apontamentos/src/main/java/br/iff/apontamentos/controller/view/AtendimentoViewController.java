@@ -21,5 +21,11 @@ public class AtendimentoViewController {
 		model.addAttribute("atendimento", atendimentosRepository.findById(id));
 		return "formAtendimento";
 	}
+	
+	@GetMapping(path = "/home")
+	public String teste() {
+		
+		return "layoutBase";
+	}
 
 }

@@ -27,6 +27,12 @@ public class ControllerAtendimento {
 		return "Olá Mundo" + id;
 	}
 	
+	@GetMapping(path = "/home")
+	public String teste() {
+		
+		return "layoutBase";
+	}
+	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	public String newAtendimento(
