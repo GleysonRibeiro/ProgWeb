@@ -35,10 +35,9 @@ public class ControllerVeiculo {
 			@RequestParam(name = "placa") String placa,
 			@RequestParam(name = "modelo") String modelo){
 		
-		Veiculo novoVeiculo = new Veiculo();
+		Veiculo novoVeiculo = new Veiculo(prefixo, placa, modelo);
 		
-		novoVeiculo.novoVeiculo(prefixo, placa, modelo);
-		
+				
 		veiculos.save(novoVeiculo);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(novoVeiculo);

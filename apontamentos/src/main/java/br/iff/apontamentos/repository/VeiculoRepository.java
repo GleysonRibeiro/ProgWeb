@@ -9,6 +9,8 @@ import br.iff.apontamentos.Veiculo;
 
 @Repository
 public interface VeiculoRepository extends JpaRepository<Veiculo, Long> {
+
+	Veiculo findByprefixo(int prefixo);
 	
 
 }

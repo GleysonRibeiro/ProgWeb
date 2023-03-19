@@ -54,8 +54,12 @@ public class Equipamento {
 		
 	}
 	
-	public void novoEquipamento (int numero) {
+	public Equipamento (int numero, Veiculo veiculo, int regime, String tipo, String area) {
 		this.numero = numero;
+		this.veiculo = veiculo;
+		this.regime = regime;
+		this.tipo = tipo;
+		this.area = area;
 	}
 	
 	public void adicionarAtendimento(Atendimento atendimento) {

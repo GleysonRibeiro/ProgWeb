@@ -21,5 +21,13 @@ public class EquipamentoViewController {
 		model.addAttribute("equipamento", equipamentosRepository.findById(id));
 		return "formEquipamento";
 	}
+	@GetMapping(path = "/cadastrarequipamento")
+	public String cadastrarEquipamento() {
+		return "cadastroEquipamento";
+	}
+	@GetMapping(path = "/home")
+	public String homeEquipamento() {
+		return "homeEquipamentos";
+	}
 
 }

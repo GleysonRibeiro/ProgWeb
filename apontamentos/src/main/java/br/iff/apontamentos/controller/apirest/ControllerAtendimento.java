@@ -27,7 +27,7 @@ import br.iff.apontamentos.repository.AtendimentoRepository;
 
 public class ControllerAtendimento {
 	@Autowired
-	private AtendimentoRepository repositorio;
+	private AtendimentoRepository atendimentoRepository;
 	
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
@@ -54,7 +54,7 @@ public class ControllerAtendimento {
 		
 		while (!dataAtual.isAfter(dataFinal)) {
 			novoAtendimento = new Atendimento(numero, dataAtual);			
-			repositorio.save(novoAtendimento);
+			this.atendimentoRepository.save(novoAtendimento);
 			dataAtual = dataAtual.plusDays(1);
 		}
 		

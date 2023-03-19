@@ -13,6 +13,7 @@
 				<div th:replace="layoutBase :: navbar"></div>
 				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 					<form action="/apirest/atendimento" method="post">
+					  <h3>Cadastrar Atendimentos</h3>
 					  <div class="form-group">
 					    <label for="formGroupExampleInput">Número do atendimento</label>
 					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do atendimento" pattern="[0-9]{8}" required>
