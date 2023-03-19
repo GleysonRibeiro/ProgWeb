@@ -26,7 +26,6 @@ public class Atendimento {
 	private Long id;
 	
 	@NotNull(message = "Número obrigatório")
-	@Column(unique=true)
 	@Min(0)
 	private int numero;
 	
@@ -49,7 +48,7 @@ public class Atendimento {
 		
 	}
 	
-	public void novoAtendimento(int numero, LocalDate data) {
+	public Atendimento(int numero, LocalDate data) {
 		
 		this.numero = numero;
 		this.data = data;

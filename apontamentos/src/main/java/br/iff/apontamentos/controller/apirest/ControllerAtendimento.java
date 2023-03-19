@@ -2,10 +2,12 @@ package br.iff.apontamentos.controller.apirest;
 
 import java.time.LocalDate;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,37 +15,51 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+
 import br.iff.apontamentos.Atendimento;
+import br.iff.apontamentos.repository.AtendimentoRepository;
 
 
 @RestController
 @RequestMapping(path = "/apirest/atendimento")
-
+@Service
 
 public class ControllerAtendimento {
+	@Autowired
+	private AtendimentoRepository repositorio;
 	
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
 		return "Olá Mundo" + id;
 	}
 	
-	@GetMapping(path = "/home")
-	public String teste() {
+	@GetMapping(path = "/")
+	public String atendimentoCriado() {
 		
-		return "layoutBase";
+		return "homeAtendimentos";
 	}
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public String newAtendimento(
+	public String novoAtendimento(
+			@ModelAttribute Atendimento novoAtendimento,
 			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "data") LocalDate data
+			@RequestParam(name = "dataInicial") LocalDate dataInicial,
+			@RequestParam(name = "dataFinal") LocalDate dataFinal
+			
 	) {
-		@SuppressWarnings("unused")
-		Atendimento novoAtendimento = new Atendimento();
-		novoAtendimento.novoAtendimento(numero, data);
 		
-		return "Atendimento:" + numero + data;
+		LocalDate dataAtual = dataInicial;		
+		
+		while (!dataAtual.isAfter(dataFinal)) {
+			novoAtendimento = new Atendimento(numero, dataAtual);			
+			repositorio.save(novoAtendimento);
+			dataAtual = dataAtual.plusDays(1);
+		}
+		
+		
+		return "/atendimentos/home";
 	}
 	
 	@PutMapping("/{id}")
@@ -62,7 +78,6 @@ public class ControllerAtendimento {
 	public String deletarAtendimento(@RequestParam(name="numero") int numero) {
 		return "Atendimento deletado:" + numero;
 	}
-	
-	
+		
 
 }
