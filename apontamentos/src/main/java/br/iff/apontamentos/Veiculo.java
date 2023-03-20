@@ -36,11 +36,8 @@ public class Veiculo {
 	public Veiculo() {
 		
 	}
-	
-	
-	
-	
-	public void novoVeiculo (int prefixo, String placa, String modelo) {
+			
+	public Veiculo (int prefixo, String placa, String modelo) {
 		this.prefixo = prefixo;
 		this.placa=placa;
 		this.modelo=modelo;
@@ -48,6 +45,7 @@ public class Veiculo {
 
 	public void alterarCadastro (String placa){
 		this.placa=placa;
-	}	
+	}
+	
 
 }

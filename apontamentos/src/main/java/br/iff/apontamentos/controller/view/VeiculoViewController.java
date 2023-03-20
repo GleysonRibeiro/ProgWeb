@@ -23,5 +23,11 @@ public class VeiculoViewController {
 		model.addAttribute("veiculo", veiculosRepository.findById(id));
 		return "formVeiculo";
 	}
+	
+	@GetMapping(path = "/home")
+	public String homeVeiculo() {
+		
+		return "homeVeiculos";
+	}
 
 }

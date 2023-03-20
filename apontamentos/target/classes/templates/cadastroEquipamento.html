@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				<div th:replace="layoutBase :: navbar"></div>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<form action="/apirest/equipamento" method="post">
+					  <h3>Cadastrar Equipamento</h3>
+					  <div class="form-group">
+					    <label for="formGroupExampleInput">Número do equipamento</label>
+					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do equipamento" pattern="[0-9]{8}" required>
+						<small id="numeroHelp" class="form-text text-muted">Insira o número do equipamento que deseja criar (8 dígitos)</small>
+
+					  </div>
+					  <div class="form-group">
+					    <label for="formGroupExampleInput">Veículo</label>
+					    <input type="text" class="form-control" id="veiculo" aria-describedby="veiculoHelp" placeholder="Insira o prefixo do veículo" pattern="[0-9]{6}" required>
+						<small id="veiculoHelp" class="form-text text-muted">Insira o número do veículo associado a este equipamento (6 dígitos)</small>
+					    
+					  </div>
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput">Regime</label>
+					    <input type="text" class="form-control" id="regime" aria-describedby="regimeHelp" placeholder="Insira o regime do equipamento" required>
+						<small id="regimeHelp" class="form-text text-muted">Insira o regime em horas do equipamento</small>
+					    
+					  </div>
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput">Tipo</label>
+					    <input type="text" class="form-control" id="tipo" aria-describedby="tipoHelp" placeholder="Insira o tipo do equipamento" required>
+						<small id="regimeHelp" class="form-text text-muted">Insira o tipo do equipamento (Administrativo, Contínuo, Turno ou Chamada)</small>
+					    
+					  </div>
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput">Área</label>
+					    <input type="text" class="form-control" id="area" aria-describedby="areaHelp" placeholder="Insira a área do equipamento" required>
+						<small id="areaHelp" class="form-text text-muted">Insira a área do equipamento(Municipal, Intermunicipal ou Interestadual)</small>
+					    
+					  </div>
+					  	<p>
+					  	<p>
+  						<button type="submit" class="btn btn-primary">Enviar</button>
+					</form>
+					
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

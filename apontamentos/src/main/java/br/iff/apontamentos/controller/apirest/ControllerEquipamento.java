@@ -1,5 +1,6 @@
 package br.iff.apontamentos.controller.apirest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +13,19 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.Veiculo;
+import br.iff.apontamentos.repository.EquipamentoRepository;
+import br.iff.apontamentos.repository.VeiculoRepository;
 
 @RestController
 @RequestMapping(path = "/apirest/equipamento")
 
 public class ControllerEquipamento {
+	
+	@Autowired
+	private VeiculoRepository veiculoRepository;
+	
+	@Autowired
+	private EquipamentoRepository equipamentoRepository;
 	
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
@@ -25,11 +34,17 @@ public class ControllerEquipamento {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public String newEquipamento(
-			@RequestParam(name = "numero") int numero)
-	{
-		Equipamento novoEquipamento = new Equipamento();
-		novoEquipamento.novoEquipamento(numero);
+	public String cadastrarEquipamento(
+			@RequestParam(name = "numero") int numero,
+			@RequestParam(name = "prefixo") int prefixo,
+			@RequestParam(name = "regime") int regime,
+			@RequestParam(name = "tipo") String tipo,
+			@RequestParam(name = "area") String area)
+	{	
+		Veiculo veiculo = veiculoRepository.findByprefixo(prefixo);
+		Equipamento novoEquipamento = new Equipamento(numero, veiculo, regime, tipo, area);		
+		
+		this.equipamentoRepository.save(novoEquipamento);
 		
 		return "Equipamento:" + numero;
 	}

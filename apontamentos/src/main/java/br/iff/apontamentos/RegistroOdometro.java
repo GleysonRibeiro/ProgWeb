@@ -1,14 +1,12 @@
 package br.iff.apontamentos;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.time.LocalTime;
-import java.util.Date;
+
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Min;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
