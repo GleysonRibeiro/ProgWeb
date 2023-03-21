@@ -15,12 +15,10 @@
     <fullyQualifiedTypeName name="br.iff.apontamentos.equipamento"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Collections"/>
     <fullyQualifiedTypeName name="jakarta.persistence.Entity"/>
     <fullyQualifiedTypeName name="java.time.LocalTime"/>
     <fullyQualifiedTypeName name="org.hibernate.annotations.JdbcType"/>
-    <fullyQualifiedTypeName name="br.iff.apontamentos.Veiculo"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Size"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Pattern"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
@@ -33,8 +31,13 @@
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.AtendimentoRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.VeiculoRepository"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.EquipamentoRepository"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.service.AtendimentoService"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.Veiculo"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.service.EquipamentoService"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.service.VeiculoService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
 </qualifiedTypeNameHistroy>

@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import br.iff.apontamentos.Atendimento;
-import br.iff.apontamentos.repository.AtendimentoRepository;
+import br.iff.apontamentos.service.AtendimentoService;
 
 
 @RestController
@@ -26,8 +26,9 @@ import br.iff.apontamentos.repository.AtendimentoRepository;
 @Service
 
 public class ControllerAtendimento {
+	
 	@Autowired
-	private AtendimentoRepository atendimentoRepository;
+	private AtendimentoService service;
 	
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
@@ -49,16 +50,8 @@ public class ControllerAtendimento {
 			@RequestParam(name = "dataFinal") LocalDate dataFinal
 			
 	) {
-		
-		LocalDate dataAtual = dataInicial;		
-		
-		while (!dataAtual.isAfter(dataFinal)) {
-			novoAtendimento = new Atendimento(numero, dataAtual);			
-			this.atendimentoRepository.save(novoAtendimento);
-			dataAtual = dataAtual.plusDays(1);
-		}
-		
-		
+		service.novoAtendimento(numero, dataInicial, dataFinal);
+				
 		return "/atendimentos/home";
 	}
 	
