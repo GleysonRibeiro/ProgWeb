@@ -12,9 +12,15 @@ public class HomeViewController {
 	
 	
 	@GetMapping(path = "/")
-	public String teste() {
+	public String home() {
 			
 		return "home";
 	}
+	@GetMapping(path = "/apontamento")
+	public String abrirApontamentos() {
+			
+		return "apontamento";
+	}
+
 
 }

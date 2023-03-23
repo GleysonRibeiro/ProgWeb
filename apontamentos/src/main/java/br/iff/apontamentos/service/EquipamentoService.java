@@ -1,6 +1,8 @@
 package br.iff.apontamentos.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import br.iff.apontamentos.Equipamento;
@@ -16,13 +18,13 @@ public class EquipamentoService {
 	@Autowired
 	private EquipamentoRepository repo;
 	
-	public int novoEquipamento(int numero, int prefixo, int regime, String tipo, String area) {
+	public ResponseEntity<Equipamento> novoEquipamento(int numero, int prefixo, int regime, String tipo, String area) {
 		Veiculo veiculo = veiculoService.findByPrefixo(prefixo);
 		Equipamento novoEquipamento = new Equipamento(numero, veiculo, regime, tipo, area);		
 		
 		this.repo.save(novoEquipamento);
 		
-		return 1;
+		return ResponseEntity.status(HttpStatus.CREATED).body(novoEquipamento);
 	}
 
 }

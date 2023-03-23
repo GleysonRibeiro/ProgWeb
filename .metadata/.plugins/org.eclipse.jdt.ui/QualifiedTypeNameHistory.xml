@@ -25,7 +25,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
     <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="jakarta.persistence.EntityManager"/>
-    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
@@ -36,8 +35,10 @@
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.EquipamentoRepository"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.AtendimentoService"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Veiculo"/>
-    <fullyQualifiedTypeName name="br.iff.apontamentos.service.EquipamentoService"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.VeiculoService"/>
     <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.Equipamento"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.service.EquipamentoService"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 </qualifiedTypeNameHistroy>
