@@ -1,5 +1,7 @@
 package br.iff.apontamentos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,6 +27,11 @@ public class EquipamentoService {
 		this.repo.save(novoEquipamento);
 		
 		return ResponseEntity.status(HttpStatus.CREATED).body(novoEquipamento);
+	}
+	
+	public ResponseEntity<List<Equipamento>> listarEquipamentos(){
+		List<Equipamento> equipamentos = repo.findAll();
+		return ResponseEntity.status(HttpStatus.CREATED).body(equipamentos);		
 	}
 
 }

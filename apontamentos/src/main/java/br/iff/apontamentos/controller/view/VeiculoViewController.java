@@ -15,19 +15,12 @@ import br.iff.apontamentos.repository.VeiculoRepository;
 @RequestMapping(path = "/veiculo")
 public class VeiculoViewController {
 	
-	@Autowired
-	private VeiculoRepository veiculosRepository;
 	
-	@GetMapping(path = "/{id}")
-	public String buscarVeiculo(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("veiculo", veiculosRepository.findById(id));
-		return "formVeiculo";
-	}
 	
 	@GetMapping(path = "/home")
 	public String homeVeiculo() {
 		
-		return "homeVeiculos";
+		return "Veiculo/home";
 	}
 
 }

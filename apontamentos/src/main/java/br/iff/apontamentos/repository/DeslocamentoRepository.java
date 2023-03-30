@@ -5,9 +5,9 @@ import org.springframework.stereotype.Repository;
 
 
 
-import br.iff.apontamentos.RegistroOdometro;
+import br.iff.apontamentos.Deslocamento;
 
 @Repository
-public interface RegistroOdometroRepository extends JpaRepository<RegistroOdometro, Long> {
+public interface DeslocamentoRepository extends JpaRepository<Deslocamento, Long> {
 
 }

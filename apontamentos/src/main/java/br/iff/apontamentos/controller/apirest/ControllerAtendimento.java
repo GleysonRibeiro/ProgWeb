@@ -27,7 +27,7 @@ import br.iff.apontamentos.service.AtendimentoService;
 
 public class ControllerAtendimento {
 	
-	@Autowired
+	/*@Autowired
 	private AtendimentoService service;
 	
 	@GetMapping("/{id}")
@@ -70,7 +70,7 @@ public class ControllerAtendimento {
 	@DeleteMapping("/{id}")
 	public String deletarAtendimento(@RequestParam(name="numero") int numero) {
 		return "Atendimento deletado:" + numero;
-	}
+	}*/
 		
 
 }

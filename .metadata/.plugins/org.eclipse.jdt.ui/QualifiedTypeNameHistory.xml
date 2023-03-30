@@ -23,7 +23,6 @@
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Pattern"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="jakarta.persistence.EntityManager"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Controller"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.GetMapping"/>
@@ -31,14 +30,15 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ModelAttribute"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.AtendimentoRepository"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.VeiculoRepository"/>
-    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
-    <fullyQualifiedTypeName name="br.iff.apontamentos.repository.EquipamentoRepository"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.AtendimentoService"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Veiculo"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.VeiculoService"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
+    <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="br.iff.apontamentos.repository.EquipamentoRepository"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Equipamento"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.EquipamentoService"/>
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
 </qualifiedTypeNameHistroy>

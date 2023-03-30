@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.iff.apontamentos.repository.RegistroOdometroRepository;
+import br.iff.apontamentos.repository.DeslocamentoRepository;
 
 
 
 @Controller
 @RequestMapping(path = "/registroodometro")
-public class RegistroOdometroViewController {
+public class DeslocamentoViewController {
 	
 	@Autowired
-	private RegistroOdometroRepository deslocamentosRepository;
+	private DeslocamentoRepository deslocamentosRepository;
 	
 	@GetMapping(path = "/{id}")
 	public String buscarRegistroOdometro(@PathVariable("id") Long id, Model model) {

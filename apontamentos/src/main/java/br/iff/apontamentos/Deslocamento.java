@@ -17,7 +17,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "deslocamentos")
-public class RegistroOdometro {
+public class Deslocamento {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,7 +41,7 @@ public class RegistroOdometro {
 	
 	
 	
-	public RegistroOdometro() {
+	public Deslocamento() {
 		
 	}
 	

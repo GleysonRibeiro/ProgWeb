@@ -22,14 +22,10 @@ public class EquipamentoViewController {
 	@Autowired
 	private EquipamentoService service;
 	
-	@GetMapping(path = "/{id}")
-	public String buscarEquipamento(@PathVariable("id") Long id, Model model) {
-		//model.addAttribute("equipamento", equipamentosRepository.findById(id));
-		return "formEquipamento";
-	}
+	
 	@GetMapping(path = "/cadastrarequipamento")
 	public String cadastrarEquipamento() {
-		return "cadastroEquipamento";
+		return "Equipamento/cadastro";
 	}
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
@@ -45,11 +41,7 @@ public class EquipamentoViewController {
 	}
 	@GetMapping(path = "/home")
 	public String homeEquipamento() {
-		return "homeEquipamentos";
+		return "Equipamento/home";
 	}
-	@GetMapping(path = "/apontamento")
-	public String apontamento() {
-		return "apontamento";
-	}
-
+	
 }

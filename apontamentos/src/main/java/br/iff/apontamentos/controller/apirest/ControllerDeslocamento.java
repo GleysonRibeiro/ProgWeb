@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 
-import br.iff.apontamentos.RegistroOdometro;
+import br.iff.apontamentos.Deslocamento;
 
 @RestController
 @RequestMapping(path = "/apirest/registroodometro")
 
-public class ControllerRegistroOdometro {
+public class ControllerDeslocamento {
 	
-	@GetMapping("/{id}")
+	/*@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
 		return "Olá Mundo" + id;
 	}
@@ -45,6 +45,6 @@ public class ControllerRegistroOdometro {
 	@DeleteMapping("/{id}")
 	public String deletarDeslocamento(@RequestParam(name="id") int id) {
 		return "Deslocamento deletado:" + id;
-	}
+	}*/
 
 }

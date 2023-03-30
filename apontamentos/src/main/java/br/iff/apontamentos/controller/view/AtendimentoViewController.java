@@ -10,31 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.iff.apontamentos.repository.AtendimentoRepository;
 
 @Controller
-@RequestMapping(path = "/atendimentos")
+@RequestMapping(path = "/atendimento")
 public class AtendimentoViewController {
 	
-	@Autowired
-	private AtendimentoRepository atendimentosRepository;
+	
 	
 	@GetMapping(path = "/home")
 	public String telaAtendimentos() {
-		return "homeAtendimentos";
+		return "Atendimento/home";
 	}
 	
 	@GetMapping(path = "atendimentos/novoatendimento")
 	public String novoAtendimento() {
-		return "cadastroAtendimentos";
+		return "Atendimento/cadastro";
 	}
 	
 	@GetMapping(path = "atendimentos/consultaratendimento")
 	public String consultarAtendimento() {
-		return "consultarAtendimentos";
-	}
-	
-	@GetMapping(path = "/{id}")
-	public String buscarAtendimento(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("atendimento", atendimentosRepository.findById(id));
-		return "formAtendimento";
+		return "Atendimento/consultar";
 	}
 	
 	

@@ -12,7 +12,17 @@
 				</header>
 				<div th:replace="layoutBase :: navbar"></div>
 				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-										
+					<p>
+					<p>
+					<form action="/apontamento/{numeroEquipamento}" method="POST">
+					  <div class="form-group">
+					    <label for="numeroEquipamento">Número do equipamento:</label>
+					    <input type="text" class="form-control" id="numeroEquipamento" name="numeroEquipamento" placeholder="Digite o número do equipamento (8 dígitos)">
+					  </div>
+					  <p>
+					  <p>
+					  <button type="submit" class="btn btn-primary">Confirmar</button>
+					</form>												
 
 				</main>
 			</div>
