@@ -7,4 +7,6 @@ import br.iff.apontamentos.Equipamento;
 @Repository
 public interface EquipamentoRepository extends JpaRepository<Equipamento, Long> {
 
+	Equipamento findByNumero(int numeroEquipamento);
+	
 }

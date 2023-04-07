@@ -44,4 +44,15 @@ public class EquipamentoViewController {
 		return "Equipamento/home";
 	}
 	
+	@PostMapping("/listarAtendimentos")
+    public String listarAtendimentos(@RequestParam("numeroEquipamento") int numeroEquipamento, Model model) {
+		
+		Equipamento equipamento = service.buscarPorNumero(numeroEquipamento);
+		
+		model.addAttribute("atendimentos", equipamento.obterAtendimentos());
+		
+		return "atendimentos";
+	}
+	
+	
 }

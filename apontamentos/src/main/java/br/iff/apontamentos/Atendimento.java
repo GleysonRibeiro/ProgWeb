@@ -29,10 +29,8 @@ public class Atendimento {
 	@Min(0)
 	private int numero;
 	
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate data;
     
-	@Min(1)
 	private int kmRodado;
 	
 	@Min(0)
@@ -49,7 +47,6 @@ public class Atendimento {
 	}
 	
 	public Atendimento(int numero, LocalDate data) {
-		
 		this.numero = numero;
 		this.data = data;
 		this.kmRodado=0;

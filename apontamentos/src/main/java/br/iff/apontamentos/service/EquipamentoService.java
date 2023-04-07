@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
+import br.iff.apontamentos.Atendimento;
 import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.Veiculo;
 import br.iff.apontamentos.repository.EquipamentoRepository;
@@ -32,6 +34,13 @@ public class EquipamentoService {
 	public ResponseEntity<List<Equipamento>> listarEquipamentos(){
 		List<Equipamento> equipamentos = repo.findAll();
 		return ResponseEntity.status(HttpStatus.CREATED).body(equipamentos);		
+	}
+	
+	
+	public Equipamento buscarPorNumero(int numeroEquipamento){
+		Equipamento equipamento = repo.findByNumero(numeroEquipamento);
+		
+		return equipamento;
 	}
 
 }
