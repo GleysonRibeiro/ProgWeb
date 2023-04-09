@@ -11,29 +11,28 @@
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
 				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-					<form action="/apirest/atendimento" method="post">
-					  <h3>Cadastrar Atendimentos</h3>
-					  <div class="form-group">
-					    <label for="formGroupExampleInput">Número do atendimento</label>
-					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do atendimento" pattern="[0-9]{8}" required>
-						<small id="numeroHelp" class="form-text text-muted">Insira o número do atendimento que deseja criar (8 dígitos)</small>
-
-					  </div>
-					  <div class="form-group">
-					    <label for="data">Data inicial</label>
-					    <input type="date" class="form-control" id="dataInicial" placeholder="Data inicial">
-					  </div>
-					  <div class="form-group">
-					    <label for="data">Data final</label>
-					    <input type="date" class="form-control" id="dataFinal" placeholder="Data final">
-					    
-					  </div>
-					  	<p>
-					  	<p>
-  						<button type="submit" class="btn btn-primary">Enviar</button>
-					</form>
-					
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">	
+						<form action="cadastrar" method="POST">
+						  <h3>Cadastrar veículo</h3>
+						  <div class="form-group">
+						    <label for="formGroupExampleInput"><h5>Prefixo</h5></label>
+						    <input type="text" class="form-control" id="prefixo" name="prefixo" aria-describedby="prefixoHelp" placeholder="Insira o prefixo do veículo" pattern="[0-9]{6}" required>
+							<small id="numeroHelp" class="form-text text-muted">Insira o prefixo do veículo</small>
+	
+						  </div>
+						  <div class="form-group">
+						    <label for="formGroupExampleInput"><h5>Placa</h5></label>
+						    <input type="text" class="form-control" id="placa" name="placa" placeholder="Insira a placa">
+						  </div>
+						  <div class="form-group">
+						    <label for="formGroupExampleInput"><h5>Modelo</h5></label>
+						    <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Insira o modelo">
+						    
+						  </div>
+						  	<p>
+						  	<p>
+	  						<button type="submit" class="btn btn-primary">Cadastrar</button>
+						</form>
 				</main>
 			</div>
 		</div>

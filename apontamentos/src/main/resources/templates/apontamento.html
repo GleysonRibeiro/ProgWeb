@@ -14,15 +14,45 @@
 				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 					<p>
 					<p>
-					<form action="/equipamento/listarAtendimentos" method="POST">
-					  <div class="form-group">
-					    <label for="numeroEquipamento">Número do equipamento:</label>
-					    <input type="text" class="form-control" id="numeroEquipamento" name="numeroEquipamento" placeholder="Digite o número do equipamento (8 dígitos)">
-					  </div>
-					  <p>
-					  <p>
-					  <button type="submit" class="btn btn-primary">Confirmar</button>
-					</form>												
+					<h1>Equipamentos</h1>
+					
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Número</th>
+								<th scope="col">Área</th>
+								<th scope="col">Regime em horas</th>
+								<th scope="col">Tipo</th>
+								<th scope="col">Veículo</th>
+								<th scope="col">Ir para atendimentos</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${equipamentos.empty}">
+								<td colspan="2">Sem equipamentos cadastrados</td>
+							</tr>
+							<tr th:each="equipamento : ${equipamentos}">
+								<td><span th:text="${equipamento.numero}"></span></td>
+								<td><span th:text="${equipamento.area}"></span></td>
+								<td><span th:text="${equipamento.regime}"></span></td>
+								<td><span th:text="${equipamento.tipo}"></span></td>
+								<td><span th:text="${equipamento.veiculo.prefixo}"></span></td>
+								<td>
+									<form method="POST" action="/atendimento/listar">
+										<div class="form-group">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit">Atendimentos</button>
+										</div>
+									</form>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					
+					<h5>Não encontrou o equipamento? Cadastre um novo equipamento no botão</h5>	
+					<div class="btn-group">	    				
+	    				<a href="equipamento/cadastro" class="btn btn-outline-primary">Cadastrar Equipamento</a>	    				
+					</div>															
 
 				</main>
 			</div>

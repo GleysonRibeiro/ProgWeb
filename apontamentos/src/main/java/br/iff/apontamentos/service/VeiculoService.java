@@ -1,5 +1,7 @@
 package br.iff.apontamentos.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +32,10 @@ public class VeiculoService {
 		Veiculo veiculo = repo.findByPrefixo(prefixo);
 		
 		return veiculo;
+	}
+	
+	public List<Veiculo> findAll(){
+		return repo.findAll();
 	}
 	
 

@@ -31,9 +31,9 @@ public class EquipamentoService {
 		return ResponseEntity.status(HttpStatus.CREATED).body(novoEquipamento);
 	}
 	
-	public ResponseEntity<List<Equipamento>> listarEquipamentos(){
+	public List<Equipamento> listarEquipamentos(){
 		List<Equipamento> equipamentos = repo.findAll();
-		return ResponseEntity.status(HttpStatus.CREATED).body(equipamentos);		
+		return equipamentos;		
 	}
 	
 	
@@ -41,6 +41,12 @@ public class EquipamentoService {
 		Equipamento equipamento = repo.findByNumero(numeroEquipamento);
 		
 		return equipamento;
+	}
+	
+	public List<Atendimento> buscarAtendimentosPorNumero(int numeroEquipamento){
+		Equipamento equipamento = repo.findByNumero(numeroEquipamento);
+		
+		return equipamento.obterAtendimentos();
 	}
 
 }

@@ -29,6 +29,7 @@ public class Atendimento {
 	@Min(0)
 	private int numero;
 	
+	@NotNull(message = "Data obrigatória")	
 	private LocalDate data;
     
 	private int kmRodado;
@@ -72,5 +73,12 @@ public class Atendimento {
 		this.adicionarDeslocamento(deslocamento);
 	}
 	
+	public LocalDate getData() {
+		return this.data;
+	}
+	
+	public int getNumero() {
+		return this.numero;
+	}
 
 }

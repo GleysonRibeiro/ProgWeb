@@ -24,20 +24,22 @@ public class VeiculoViewController {
 	@Autowired
 	VeiculoService service;
 	
-	@GetMapping(path = "/home")
+	@GetMapping(path = "/cadastro")
 	public String homeVeiculo() {
 		
-		return "Veiculo/home";
+		return "Veiculo/cadastro";
 	}
 	
-	@PostMapping
+	@PostMapping(path = "/cadastrar")
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Veiculo> novoVeiculo(
+	public String novoVeiculo(
 			@RequestParam(name = "prefixo") int prefixo,
 			@RequestParam(name = "placa") String placa,
 			@RequestParam(name = "modelo") String modelo){
-					
-		return service.novoVeiculo(prefixo, placa, modelo);
+			
+			service.novoVeiculo(prefixo, placa, modelo);
+		
+		return "Veiculo/cadastro";
 	}
 
 }

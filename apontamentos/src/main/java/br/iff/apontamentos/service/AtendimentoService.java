@@ -1,6 +1,7 @@
 package br.iff.apontamentos.service;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,15 @@ public class AtendimentoService {
 			dataAtual = dataAtual.plusDays(1);
 		}
 		return 1;
-	}	
+	}
+	
+	public List<Atendimento> listarAtendimentos() {
+		return repo.findAll();	
+	}
+	
+	public List<Atendimento> listarAtendimentosPorEquipamento(int numEquipamento) {
+		
+		return equipamentoService.buscarAtendimentosPorNumero(numEquipamento);	
+	}
 
 }

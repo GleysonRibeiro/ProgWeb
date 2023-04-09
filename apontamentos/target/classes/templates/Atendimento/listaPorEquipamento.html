@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				<div th:replace="layoutBase :: navbar"></div>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<h1>Lista de atendimentos</h1>
+					
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Data</th>
+								<th scope="col">Número</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${atendimentos.empty}">
+								<td colspan="2">Sem atendimentos</td>
+							</tr>
+							<tr th:each="atendimento : ${atendimentos}">
+								<td><span th:text="${atendimento.data}"></span></td>
+								<td><span th:text="${atendimento.numero}"></span></td>
+							</tr>
+						</tbody>
+					</table>
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

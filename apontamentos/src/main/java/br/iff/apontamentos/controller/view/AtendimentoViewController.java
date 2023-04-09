@@ -53,6 +53,15 @@ public class AtendimentoViewController {
 		
 	}
 	
+	@PostMapping(path = "listar")
+	public String listarAtendimento(
+			Model model,
+			@RequestParam(name = "numeroEquipamento") int numeroEquipamento) {
+		model.addAttribute("atendimentos", service.listarAtendimentosPorEquipamento(numeroEquipamento));
+		
+		return "Atendimento/listaPorEquipamento";
+	}
+	
 	
 	
 	

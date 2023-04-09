@@ -30,10 +30,8 @@
     <fullyQualifiedTypeName name="org.springframework.stereotype.Service"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.repository.EquipamentoRepository"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.EquipamentoService"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.AtendimentoService"/>
-    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="java.time.LocalDate"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Atendimento"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Equipamento"/>
@@ -42,5 +40,7 @@
     <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.Veiculo"/>
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestParam"/>
+    <fullyQualifiedTypeName name="org.springframework.ui.Model"/>
     <fullyQualifiedTypeName name="br.iff.apontamentos.service.VeiculoService"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
 </qualifiedTypeNameHistroy>

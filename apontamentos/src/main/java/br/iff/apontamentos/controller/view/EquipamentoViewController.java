@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.service.EquipamentoService;
+import br.iff.apontamentos.service.VeiculoService;
 
 @Controller
 @RequestMapping(path = "/equipamento")
@@ -22,22 +23,28 @@ public class EquipamentoViewController {
 	@Autowired
 	private EquipamentoService service;
 	
+	@Autowired
+	private VeiculoService veiculoService;
 	
-	@GetMapping(path = "/cadastrarequipamento")
-	public String cadastrarEquipamento() {
+	
+	@GetMapping(path = "/cadastro")
+	public String cadastrarEquipamento(Model model) {
+		
+		model.addAttribute("veiculos", veiculoService.findAll());
+		
 		return "Equipamento/cadastro";
 	}
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Equipamento> novoEquipamento(
+	public String novoEquipamento(
 			@RequestParam(name = "numero") int numero,
 			@RequestParam(name = "prefixo") int prefixo,
 			@RequestParam(name = "regime") int regime,
 			@RequestParam(name = "tipo") String tipo,
 			@RequestParam(name = "area") String area){
-		
+			service.novoEquipamento(numero, prefixo, regime, tipo, area);
 					
-		return service.novoEquipamento(numero, prefixo, regime, tipo, area);
+		return "apontamento";
 	}
 	@GetMapping(path = "/home")
 	public String homeEquipamento() {
