@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				<div th:replace="layoutBase :: navbar"></div>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<form action="/apirest/equipamento" method="post">
+					  <h3>Cadastrar Equipamento</h3>
+					  <div class="form-group">
+					    <label for="formGroupExampleInput"><h5>Número do equipamento</h5></label>
+					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do equipamento" pattern="[0-9]{8}" required>
+						<small id="numeroHelp" class="form-text text-muted">Insira o número do equipamento que deseja criar (8 dígitos)</small>
+
+					  </div>
+					  <div class="form-group">
+					    <label for="veiculo"><h5>Veículo</h5></label>
+					    <select class="form-control" id="veiculo" name="veiculo" required>
+					    	<option value="">Selecione um veículo</option>
+					    	<option th:each="veiculo : ${veiculos}" th:value="${veiculo.id}" th:text="${veiculo.prefixo}"></option>
+					    </select>
+					    
+					    <small id="veiculoHelp" class="form-text text-muted">Selecione um veículo na lista, se não encontrar utiilize o botão para cadastrar um novo.</small>
+					    <p>
+					    <a href="../veiculo/cadastro" type="button" class="btn btn-secondary btn-sm">Cadastrar Veículo</a>
+					    
+					  </div>
+					  
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput"><h5>Regime</h5></label>
+					    <select class="form-control" id="regime" name="regime" required>
+					    	<option value="">Selecione o regime</option>
+					    	<option value="9">9 horas</option>
+					    	<option value="12">12 horas</option>					    	
+					    </select>
+						<small id="regimeHelp" class="form-text text-muted">Insira o regime em horas do equipamento</small>
+					    
+					  </div>
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput"><h5>Tipo</h5></label>
+					    <select class="form-control" id="tipo" name="tipo" required>
+					    	<option value="">Selecione o tipo</option>
+					    	<option value="administrativo">Administrativo</option>
+					    	<option value="continuo">Contínuo</option>
+					    	<option value="turno">Turno</option>					    	
+					    </select>
+						<small id="regimeHelp" class="form-text text-muted">Insira o tipo do equipamento (Administrativo, Contínuo, Turno ou Chamada)</small>
+					    
+					  </div>
+					  <div class="form-group">
+					  	<label for="formGroupExampleInput"><h5>Área</h5></label>
+					    <select class="form-control" id="area" name="area" required>
+					    	<option value="">Selecione a área</option>
+					    	<option value="intramunicipal">Intramunicipal</option>
+					    	<option value="intermunicipal">Intermunicipal</option>
+					    	<option value="interestadual">Interestadual</option>					    	
+					    </select>
+						<small id="areaHelp" class="form-text text-muted">Insira a área do equipamento(Municipal, Intermunicipal ou Interestadual)</small>
+					    
+					  </div>
+					  	<p>
+					  	<p>
+  						<button type="submit" class="btn btn-primary">Cadastrar</button>
+					</form>
+					
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

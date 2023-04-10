@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.iff.apontamentos.Veiculo;
 import br.iff.apontamentos.repository.VeiculoRepository;
+import br.iff.apontamentos.service.VeiculoService;
 
 
 @RestController
@@ -21,26 +22,21 @@ import br.iff.apontamentos.repository.VeiculoRepository;
 
 public class ControllerVeiculo {
 	
-	@Autowired
-    private VeiculoRepository veiculos;
+	/*@Autowired
+    private VeiculoService service;
 
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
-		return "Olá Mundo" + id;
+		return "Veículo id:" + id;
 	}
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public ResponseEntity<Veiculo> newVeiculo(
+	public ResponseEntity<Veiculo> novoVeiculo(
 			@RequestParam(name = "prefixo") int prefixo,
 			@RequestParam(name = "placa") String placa,
 			@RequestParam(name = "modelo") String modelo){
-		
-		Veiculo novoVeiculo = new Veiculo(prefixo, placa, modelo);
-		
-				
-		veiculos.save(novoVeiculo);
-		
-		return ResponseEntity.status(HttpStatus.CREATED).body(novoVeiculo);
+					
+		return service.novoVeiculo(prefixo, placa, modelo);
 	}
 	
 	@PutMapping("/{id}")
@@ -56,7 +52,7 @@ public class ControllerVeiculo {
 	@DeleteMapping("/{id}")
 	public String deletarVeiculo(@RequestParam(name="prefixo") int prefixo) {
 		return "Veículo deletado:" + prefixo;
-	}
+	}*/
 	
 
 	

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				<div th:replace="layoutBase :: navbar"></div>
+				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+					<h1>Menu de Equipamentos</h1>
+					<div class="btn-group">
+	    				
+	    				<a href="consultarequipamento" class="btn btn-outline-primary">Consultar Equipamento</a>
+	    				
+					</div>
+					<button class="btn btn-success">
+	  					<i class="fas fa-plus"></i> Cadastrar Equipamento
+					</button>
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

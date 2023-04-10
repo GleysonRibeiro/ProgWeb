@@ -29,10 +29,9 @@ public class Atendimento {
 	@Min(0)
 	private int numero;
 	
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	@NotNull(message = "Data obrigatória")	
 	private LocalDate data;
     
-	@Min(1)
 	private int kmRodado;
 	
 	@Min(0)
@@ -42,24 +41,23 @@ public class Atendimento {
 	private int qtdPassageiros;
 	
 	@OneToMany
-	private List<RegistroOdometro> deslocamentos = new ArrayList<>();
+	private List<Deslocamento> deslocamentos = new ArrayList<>();
 	
 	public Atendimento() {
 		
 	}
 	
 	public Atendimento(int numero, LocalDate data) {
-		
 		this.numero = numero;
 		this.data = data;
 		this.kmRodado=0;
 	}
 	
-	public void adicionarDeslocamento(RegistroOdometro deslocamento) {
+	public void adicionarDeslocamento(Deslocamento deslocamento) {
 		this.deslocamentos.add(deslocamento);
 	}
 	
-	public List<RegistroOdometro> obterDeslocamentos(){
+	public List<Deslocamento> obterDeslocamentos(){
 		return Collections.unmodifiableList(deslocamentos);
 	}
 	
@@ -70,10 +68,17 @@ public class Atendimento {
 	
 	public void deslocar(LocalDate dataInicial, LocalDate dataFinal, LocalTime horaInicial, LocalTime horaFinal, int odometroInicial, int odometroFinal) {
 		
-		RegistroOdometro deslocamento = new RegistroOdometro();
+		Deslocamento deslocamento = new Deslocamento();
 		this.kmRodado += deslocamento.deslocar(dataInicial, dataFinal, horaInicial, horaFinal, odometroInicial, odometroFinal);
 		this.adicionarDeslocamento(deslocamento);
 	}
 	
+	public LocalDate getData() {
+		return this.data;
+	}
+	
+	public int getNumero() {
+		return this.numero;
+	}
 
 }

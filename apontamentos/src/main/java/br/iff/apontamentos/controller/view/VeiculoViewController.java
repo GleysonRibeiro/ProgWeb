@@ -2,13 +2,19 @@ package br.iff.apontamentos.controller.view;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.http.HttpStatus;
 
-import br.iff.apontamentos.repository.VeiculoRepository;
+import br.iff.apontamentos.Veiculo;
+import br.iff.apontamentos.service.VeiculoService;
 
 
 @Controller
@@ -16,18 +22,24 @@ import br.iff.apontamentos.repository.VeiculoRepository;
 public class VeiculoViewController {
 	
 	@Autowired
-	private VeiculoRepository veiculosRepository;
+	VeiculoService service;
 	
-	@GetMapping(path = "/{id}")
-	public String buscarVeiculo(@PathVariable("id") Long id, Model model) {
-		model.addAttribute("veiculo", veiculosRepository.findById(id));
-		return "formVeiculo";
-	}
-	
-	@GetMapping(path = "/home")
+	@GetMapping(path = "/cadastro")
 	public String homeVeiculo() {
 		
-		return "homeVeiculos";
+		return "Veiculo/cadastro";
+	}
+	
+	@PostMapping(path = "/cadastrar")
+	@ResponseStatus(HttpStatus.CREATED)
+	public String novoVeiculo(
+			@RequestParam(name = "prefixo") int prefixo,
+			@RequestParam(name = "placa") String placa,
+			@RequestParam(name = "modelo") String modelo){
+			
+			service.novoVeiculo(prefixo, placa, modelo);
+		
+		return "Veiculo/cadastro";
 	}
 
 }

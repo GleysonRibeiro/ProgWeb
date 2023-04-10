@@ -46,6 +46,39 @@ public class Veiculo {
 	public void alterarCadastro (String placa){
 		this.placa=placa;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getPrefixo() {
+		return prefixo;
+	}
+
+	public void setPrefixo(int prefixo) {
+		this.prefixo = prefixo;
+	}
+
+	public String getPlaca() {
+		return placa;
+	}
+
+	public void setPlaca(String placa) {
+		this.placa = placa;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	
 	
 
 }

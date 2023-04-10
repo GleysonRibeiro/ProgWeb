@@ -15,17 +15,16 @@ import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.Veiculo;
 import br.iff.apontamentos.repository.EquipamentoRepository;
 import br.iff.apontamentos.repository.VeiculoRepository;
+import br.iff.apontamentos.service.EquipamentoService;
 
 @RestController
 @RequestMapping(path = "/apirest/equipamento")
 
 public class ControllerEquipamento {
 	
-	@Autowired
-	private VeiculoRepository veiculoRepository;
 	
-	@Autowired
-	private EquipamentoRepository equipamentoRepository;
+	/*@Autowired
+	private EquipamentoService service;
 	
 	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
@@ -41,10 +40,8 @@ public class ControllerEquipamento {
 			@RequestParam(name = "tipo") String tipo,
 			@RequestParam(name = "area") String area)
 	{	
-		Veiculo veiculo = veiculoRepository.findByprefixo(prefixo);
-		Equipamento novoEquipamento = new Equipamento(numero, veiculo, regime, tipo, area);		
 		
-		this.equipamentoRepository.save(novoEquipamento);
+		service.novoEquipamento(numero, prefixo, regime, tipo, area);
 		
 		return "Equipamento:" + numero;
 	}
@@ -63,6 +60,6 @@ public class ControllerEquipamento {
 	@DeleteMapping("/{id}")
 	public String deletarEquipamento(@RequestParam(name="numero") int numero) {
 		return "Equipamento deletado:" + numero;
-	}
+	}*/
 
 }
