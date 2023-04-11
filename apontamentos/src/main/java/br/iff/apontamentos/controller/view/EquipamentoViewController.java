@@ -34,7 +34,7 @@ public class EquipamentoViewController {
 		
 		return "Equipamento/cadastro";
 	}
-	@PostMapping
+	@PostMapping(path = "/cadastrar")
 	@ResponseStatus(HttpStatus.CREATED)
 	public String novoEquipamento(
 			@RequestParam(name = "numero") int numero,
@@ -44,7 +44,7 @@ public class EquipamentoViewController {
 			@RequestParam(name = "area") String area){
 			service.novoEquipamento(numero, prefixo, regime, tipo, area);
 					
-		return "apontamento";
+		return "Equipamento/cadastro";
 	}
 	@GetMapping(path = "/home")
 	public String homeEquipamento() {

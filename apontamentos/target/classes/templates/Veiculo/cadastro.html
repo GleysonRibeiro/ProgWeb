@@ -17,8 +17,8 @@
 						  <div class="form-group">
 						    <label for="formGroupExampleInput"><h5>Prefixo</h5></label>
 						    <input type="text" class="form-control" id="prefixo" name="prefixo" aria-describedby="prefixoHelp" placeholder="Insira o prefixo do veículo" pattern="[0-9]{6}" required>
-							<small id="numeroHelp" class="form-text text-muted">Insira o prefixo do veículo</small>
-	
+						    <small id="numeroHelp" class="form-text text-muted">Insira o prefixo do veículo</small>
+						
 						  </div>
 						  <div class="form-group">
 						    <label for="formGroupExampleInput"><h5>Placa</h5></label>
@@ -27,12 +27,22 @@
 						  <div class="form-group">
 						    <label for="formGroupExampleInput"><h5>Modelo</h5></label>
 						    <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Insira o modelo">
-						    
+						
 						  </div>
-						  	<p>
-						  	<p>
-						  	<button type="submit" class="btn btn-primary">Cadastrar</button>
+						  <p>
+						  <p>
+						  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="btnCadastrar">Cadastrar</button>
+						
+						  <div>
+						  	<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						  </div>
+						  
 						</form>
+
+					<div>
+						<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+					</div>
+
 				</main>
 			</div>
 		</div>

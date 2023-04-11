@@ -28,6 +28,14 @@
 							<tr th:each="atendimento : ${atendimentos}">
 								<td><span th:text="${atendimento.data}"></span></td>
 								<td><span th:text="${atendimento.numero}"></span></td>
+								<td>
+									<form method="POST" action="/deslocamento/listar">
+										<div class="form-group">
+											<input type="hidden" name="numeroAtendimento" id="numeroAtendimento" th:value="${atendimento.numero}">
+											<button type="submit">Deslocamentos</button>
+										</div>
+									</form>
+								</td>
 							</tr>
 						</tbody>
 					</table>
