@@ -10,36 +10,84 @@
 				<header>
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
-				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-					<h1>Lista de atendimentos</h1>
+				
+				<main >
+					<h1>Lista de atendimentos do equipamento: <span th:text="${equipamento.numero}"></span></h1>
 					
 					<table class="table">
 						<thead>
 							<tr>
 								<th scope="col">Data</th>
 								<th scope="col">Número</th>
+								<th scope="col">Km rodado</th>
+								<th scope="col">Hora extra</th>
+								<th scope="col">Passageiros</th>
 								<th scope="col">Deslocamentos</th>
+								<th scope="col">Avulsos</th>
+								<th scope="col">Deletar</th>
+								
+								
 							</tr>
 						</thead>
 						<tbody>
 							<tr th:if="${atendimentos.empty}">
-								<td colspan="2">Sem atendimentos</td>
+								<td colspan="4">Sem atendimentos</td>
 							</tr>
 							<tr th:each="atendimento : ${atendimentos}">
 								<td><span th:text="${atendimento.data}"></span></td>
 								<td><span th:text="${atendimento.numero}"></span></td>
+								<td><span th:text="${atendimento.kmRodado}"></span></td>
+								<td><span th:text="${atendimento.horaExtra}"></span></td>
+								<td><span th:text="${atendimento.qtdPassageiros}"></span></td>
 								<td>
 									<form method="POST" action="/deslocamento/listar">
 										<div class="form-group">
 											<input type="hidden" name="numeroAtendimento" id="numeroAtendimento" th:value="${atendimento.numero}">
-											<button type="submit">Deslocamentos</button>
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-secondary btn-sm">Deslocamentos</button>
 										</div>
 									</form>
 								</td>
+								<td>
+									<form method="POST" action="/deslocamento/avulso">
+										<div class="form-group">
+											<input type="hidden" name="numeroAtendimento" id="numeroAtendimento" th:value="${atendimento.numero}">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-warning btn-sm">Avulso</button>
+										</div>
+									</form>
+								</td>
+								<td>
+									<form method="POST" action="/atendimento/delete">
+										<div class="form-group">
+											<input type="hidden" name="id" id="id" th:value="${atendimento.id}">
+											<input type="hidden" name="numero" id="numero" th:value="${atendimento.numero}">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="id">
+												X
+											</button>
+										</div>
+										<div>
+						  					<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						 				</div>
+									</form>
+									<div>
+										<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+									</div>
+								</td>
+								
+								
 							</tr>
 						</tbody>
 					</table>
+					
+					<h5>Não encontrou o atendimento? Cadastre um novo atendimento no botão</h5>
+					<form method="POST" action="/atendimento/cadastro">
+										<div class="form-group">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-secondary btn-sm">Cadastrar</button>
+										</div>
+					</form>	
 
 				</main>
 			</div>

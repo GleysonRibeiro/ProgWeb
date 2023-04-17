@@ -33,7 +33,9 @@ public class HomeViewController {
 		
 		model.addAttribute("equipamentos", equipamentoService.listarEquipamentos());
 		
-	    return "apontamento";
+	    return "Equipamento/lista";
 	}
+	
+
 	
 }

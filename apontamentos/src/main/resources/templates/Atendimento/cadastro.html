@@ -10,25 +10,22 @@
 				<header>
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
-				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-					<form action="" method="post">
+				
+				<main >
+					<form action="novo" method="post">
 					  <h3>Cadastrar Atendimentos</h3>
 					  <div class="form-group">
 					    <label for="formGroupExampleInput">Número do atendimento</label>
-					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do atendimento" pattern="[0-9]{8}" required>
+					    <input type="text" class="form-control" name="numero" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do atendimento" pattern="[0-9]{8}" required>
 						<small id="numeroHelp" class="form-text text-muted">Insira o número do atendimento que deseja criar (8 dígitos)</small>
 
 					  </div>
 					  <div class="form-group">
-					    <label for="data">Data inicial</label>
-					    <input type="date" class="form-control" id="dataInicial" placeholder="Data inicial">
+					    <label for="data">Data</label>
+					    <input type="date" class="form-control" name="data" id="data" placeholder="Data">
 					  </div>
-					  <div class="form-group">
-					    <label for="data">Data final</label>
-					    <input type="date" class="form-control" id="dataFinal" placeholder="Data final">
-					    
-					  </div>
+					  
+					  <input type="hidden" name="equipamento" id="equipamento" th:value="${equipamento.numero}">
 					  	<p>
 					  	<p>
   						<button type="submit" class="btn btn-primary">Enviar</button>

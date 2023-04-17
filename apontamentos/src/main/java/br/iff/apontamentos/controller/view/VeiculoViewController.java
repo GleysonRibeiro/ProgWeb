@@ -41,5 +41,19 @@ public class VeiculoViewController {
 		
 		return "Veiculo/cadastro";
 	}
+	
+	@GetMapping(path = "/listar")
+	public String listarVeiculos(Model model){
+		
+		model.addAttribute("veiculos", service.findAll());
+		return "Veiculo/home";
+	}
+	
+	@PostMapping(path = "/delete")
+	public String apagarVeiculo(Model model, @RequestParam(name = "id")Long id) {
+		service.deleteById(id);
+		model.addAttribute("veiculos", service.findAll());
+		return "Veiculo/home";
+	}
 
 }

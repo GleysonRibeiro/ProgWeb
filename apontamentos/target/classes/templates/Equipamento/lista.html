@@ -10,8 +10,8 @@
 				<header>
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
-				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+				
+				<main class="container-fluid">
 					<p>
 					<p>
 					<h1>Equipamentos</h1>
@@ -24,6 +24,7 @@
 								<th scope="col">Regime em horas</th>
 								<th scope="col">Tipo</th>
 								<th scope="col">Veículo</th>
+								<th scope="col">Deletar</th>
 								<th scope="col">Ir para atendimentos</th>
 							</tr>
 						</thead>
@@ -38,10 +39,26 @@
 								<td><span th:text="${equipamento.tipo}"></span></td>
 								<td><span th:text="${equipamento.veiculo.prefixo}"></span></td>
 								<td>
+									<form method="POST" action="/equipamento/delete">
+										<div class="form-group">
+											<input type="hidden" name="id" id="id" th:value="${equipamento.id}">
+											<button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="id">
+												X
+											</button>
+										</div>
+										<div>
+						  					<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						 				</div>
+									</form>
+									<div>
+										<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+									</div>
+								</td>
+								<td>
 									<form method="POST" action="/atendimento/listar">
 										<div class="form-group">
 											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
-											<button type="submit">Atendimentos</button>
+											<button type="submit" class="btn btn-secondary btn-sm">Atendimentos</button>
 										</div>
 									</form>
 								</td>
@@ -53,7 +70,7 @@
 					<div class="btn-group">	    				
 	    				<a href="equipamento/cadastro" class="btn btn-outline-primary">Cadastrar Equipamento</a>	    				
 					</div>															
-
+					
 				</main>
 			</div>
 		</div>

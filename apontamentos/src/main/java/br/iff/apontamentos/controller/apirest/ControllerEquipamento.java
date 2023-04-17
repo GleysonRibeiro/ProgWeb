@@ -23,7 +23,7 @@ import br.iff.apontamentos.service.EquipamentoService;
 public class ControllerEquipamento {
 	
 	
-	/*@Autowired
+	@Autowired
 	private EquipamentoService service;
 	
 	@GetMapping("/{id}")
@@ -60,6 +60,6 @@ public class ControllerEquipamento {
 	@DeleteMapping("/{id}")
 	public String deletarEquipamento(@RequestParam(name="numero") int numero) {
 		return "Equipamento deletado:" + numero;
-	}*/
+	}
 
 }

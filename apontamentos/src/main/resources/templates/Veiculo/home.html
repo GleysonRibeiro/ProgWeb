@@ -10,17 +10,52 @@
 				<header>
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
-				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-					<h1>Menu de Veículos</h1>
-					<div class="btn-group">	    				
+				
+				<main class="container-fluid">
+					<h1>Veículos</h1>
+					
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Prefixo</th>
+								<th scope="col">Placa</th>
+								<th scope="col">Modelo</th>
+								<th scope="col">Deletar</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${veiculos.empty}">
+								<td colspan="4">Sem atendimentos</td>
+							</tr>
+							<tr th:each="veiculo : ${veiculos}">
+								<td><span th:text="${veiculo.prefixo}"></span></td>
+								<td><span th:text="${veiculo.placa}"></span></td>
+								<td><span th:text="${veiculo.modelo}"></span></td>
+								<td>
+									<form method="POST" action="/veiculo/delete">
+										<div class="form-group">
+											<input type="hidden" name="id" id="id" th:value="${veiculo.id}">
+											<button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalConfirmar">
+												X
+											</button>
+										</div>
+										<div>
+						  					<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						 				</div>
+									</form>
+									<div>
+										<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				
+						<div class="btn-group">
 	    				
-	    				<a href="veiculos/consultarveiculo" class="btn btn-outline-primary">Consultar Veículo</a>
+	    					<a href="cadastro" class="btn btn-outline-primary">Cadastrar veículo</a>
 	    				
-					</div>
-						<button class="btn btn-success">
-	  					<i class="fas fa-plus"></i> Cadastrar veículo
-						</button>
+						</div>
 				
 
 				</main>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				
+				<main class="container-fluid">
+				
+				
+					<form action="inserir" method="POST">
+						  <h3>Inserir deslocamento</h3>
+						  <div class="row">
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Data inicial</h5></label>
+							    <input type="date" class="form-control" id="dataInicial" name="dataInicial" aria-describedby="dataInicialHelp" placeholder="Insira a data inicial" required>
+							    <small id="dataInicialHelp" class="form-text text-muted">Insira a data inicial do deslocamento</small>						
+							  </div>
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Hora inicial</h5></label>
+							    <input type="time" class="form-control" id="horaInicial" name="horaInicial" aria-describedby="horaInicialHelp" placeholder="Insira a hora inicial" required>
+							    <small id="horaInicialHelp" class="form-text text-muted">Insira a hora inicial do deslocamento</small>						
+							  </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Data final</h5></label>
+							    <input type="date" class="form-control" id="dataFinal" name="dataFinal" aria-describedby="dataFinalHelp" placeholder="Insira a data final" required>
+							    <small id="dataFinalHelp" class="form-text text-muted">Insira a data final do deslocamento</small>						
+							  </div>
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Hora final</h5></label>
+							    <input type="time" class="form-control" id="horaFinal" name="horaFinal" aria-describedby="horaFinalHelp" placeholder="Insira a hora final" required>
+							    <small id="horaFinalHelp" class="form-text text-muted">Insira a hora sinal do deslocamento</small>						
+							  </div>
+						  </div>
+						  <div class="row">
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Odometro inicial</h5></label>
+							    <input type="text" class="form-control" id="odometroInicial" name="odometroInicial" aria-describedby="odometroInicialHelp" placeholder="Insira o odometro inicial"  required >
+							    <small id="odometroInicialHelp" class="form-text text-muted">Insira o odometro inicial do deslocamento</small>						
+							  </div>
+							  <div class="col-md-6">
+							    <label for="formGroupExampleInput"><h5>Odometro final</h5></label>
+							    <input type="text" class="form-control" id="odometroFinal" name="odometroFinal" aria-describedby="odometroFinalHelp" placeholder="Insira o odometro final" required>
+							    <small id="odometroFinalHelp" class="form-text text-muted">Insira o odometro final do deslocamento</small>						
+							  </div>
+						  </div>
+						  
+						  <p>
+						  <p>
+						  <input type="hidden" name="numeroAtendimento" id="numeroAtendimenro" th:value="${atendimento.numero}">
+						  <input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+						  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="btnCadastrar">Inserir</button>
+						
+						  <div>
+						  	<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						  </div>
+						  
+						</form>
+		
+					
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>
