@@ -22,7 +22,7 @@ import br.iff.apontamentos.service.VeiculoService;
 
 public class ControllerVeiculo {
 	
-	/*@Autowired
+	@Autowired
     private VeiculoService service;
 
 	@GetMapping("/{id}")
@@ -52,7 +52,7 @@ public class ControllerVeiculo {
 	@DeleteMapping("/{id}")
 	public String deletarVeiculo(@RequestParam(name="prefixo") int prefixo) {
 		return "Veículo deletado:" + prefixo;
-	}*/
+	}
 	
 
 	

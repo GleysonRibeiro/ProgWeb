@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				
+				<main class="container-fluid">
+				
+					<h1>Lista de deslocamentos</h1>
+					
+					
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col">Equipamento</th>
+								<th scope="col">Data incial</th>
+								<th scope="col">Hora inicial</th>
+								<th scope="col">Data final</th>
+								<th scope="col">Hora final</th>
+								<th scope="col">Odometro inicial</th>
+								<th scope="col">Odometro final</th>
+								<th scope="col">Km Rodado</th>
+								<th scope="col">Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:if="${deslocamentos.empty}">
+								<td colspan="9">Sem deslocamentos</td>
+							</tr>
+							<tr th:each="deslocamento : ${deslocamentos}">
+								<td><span th:text="${equipamento.numero}"></span></td>
+								<td><span th:text="${deslocamento.dataInicial}"></span></td>
+								<td><span th:text="${deslocamento.horaInicial}"></span></td>
+								<td><span th:text="${deslocamento.dataFinal}"></span></td>
+								<td><span th:text="${deslocamento.horaFinal}"></span></td>
+								<td><span th:text="${deslocamento.odometroInicial}"></span></td>
+								<td><span th:text="${deslocamento.odometroFinal}"></span></td>
+								<td><span th:text="${deslocamento.odometroFinal}-${deslocamento.odometroInicial}"></span></td>
+								<td>
+									<form method="POST" action="/deslocamento/delete">
+										<div class="form-group">
+											<input type="hidden" name="idDeslocamento" id="idDeslocamento" th:value="${deslocamento.id}">
+											<input type="hidden" name="numeroAtendimento" id="numeroAtendimento" th:value="${atendimento.numero}">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="id">
+												X
+											</button>
+										</div>
+										<div>
+						  					<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						 				</div>
+									</form>
+									<div>
+										<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+									</div>
+								</td>
+																
+							</tr>
+						</tbody>
+					</table>
+					
+					<h5>Utilize o botão abaixo para incluir um novo deslocamento</h5>
+					<form method="POST" action="/deslocamento/novo">
+										<div class="form-group">
+											<input type="hidden" name="numeroAtendimento" id="numeroAtendimento" th:value="${atendimento.numero}">
+											<input type="hidden" name="numeroEquipamento" id="numeroEquipamento" th:value="${equipamento.numero}">
+											<button type="submit" class="btn btn-secondary btn-sm">Incluir</button>
+										</div>
+					</form>
+					
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

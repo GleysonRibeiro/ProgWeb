@@ -51,10 +51,16 @@ public class Atendimento {
 		this.numero = numero;
 		this.data = data;
 		this.kmRodado=0;
+		this.qtdPassageiros=0;
+		this.horaExtra=0;
 	}
 	
 	public void adicionarDeslocamento(Deslocamento deslocamento) {
 		this.deslocamentos.add(deslocamento);
+	}
+	
+	public void apagarDeslocamento(Deslocamento deslocamento) {
+		this.deslocamentos.remove(deslocamento);
 	}
 	
 	public List<Deslocamento> obterDeslocamentos(){
@@ -80,5 +86,58 @@ public class Atendimento {
 	public int getNumero() {
 		return this.numero;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getKmRodado() {
+		return kmRodado;
+	}
+
+	public void setKmRodado(int kmRodado) {
+		this.kmRodado += kmRodado;
+	}
+	
+	public void removeKmRodado(int km) {
+		this.kmRodado = this.kmRodado-km;
+	}
+
+	public double getHoraExtra() {
+		return horaExtra;
+	}
+
+	public void setHoraExtra(double horaExtra) {
+		this.horaExtra += horaExtra;
+	}
+
+	public int getQtdPassageiros() {
+		return qtdPassageiros;
+	}
+
+	public void setQtdPassageiros(int qtdPassageiros) {
+		this.qtdPassageiros += qtdPassageiros;
+	}
+
+	public List<Deslocamento> getDeslocamentos() {
+		return deslocamentos;
+	}
+
+	public void setDeslocamentos(List<Deslocamento> deslocamentos) {
+		this.deslocamentos = deslocamentos;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public void setData(LocalDate data) {
+		this.data = data;
+	}
+	
 
 }

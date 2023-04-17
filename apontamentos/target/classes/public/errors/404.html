@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				
+				<main class="container-fluid">
+				
+					<div th:text="${message}"></div>					
+					
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

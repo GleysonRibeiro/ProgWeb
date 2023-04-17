@@ -34,7 +34,7 @@ public class EquipamentoViewController {
 		
 		return "Equipamento/cadastro";
 	}
-	@PostMapping
+	@PostMapping(path = "/cadastrar")
 	@ResponseStatus(HttpStatus.CREATED)
 	public String novoEquipamento(
 			@RequestParam(name = "numero") int numero,
@@ -44,11 +44,12 @@ public class EquipamentoViewController {
 			@RequestParam(name = "area") String area){
 			service.novoEquipamento(numero, prefixo, regime, tipo, area);
 					
-		return "apontamento";
+		return "Equipamento/cadastro";
 	}
-	@GetMapping(path = "/home")
-	public String homeEquipamento() {
-		return "Equipamento/home";
+	@GetMapping(path = "/listar")
+	public String homeEquipamento(Model model) {
+		model.addAttribute("equipamentos", service.listarEquipamentos());
+		return "Equipamento/lista";
 	}
 	
 	@PostMapping("/listarAtendimentos")
@@ -59,6 +60,12 @@ public class EquipamentoViewController {
 		model.addAttribute("atendimentos", equipamento.obterAtendimentos());
 		
 		return "atendimentos";
+	}
+	@PostMapping(path = "/delete")
+	public String apagarEquipamento(Model model, @RequestParam(name = "id")Long id) {
+		service.deleteById(id);
+		model.addAttribute("equipamentos", service.listarEquipamentos());
+		return "Equipamento/lista";
 	}
 	
 	

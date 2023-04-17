@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import br.iff.apontamentos.service.AtendimentoService;
+import br.iff.apontamentos.service.EquipamentoService;
 
 
 
@@ -25,14 +26,20 @@ public class AtendimentoViewController {
 	@Autowired
 	AtendimentoService service;
 	
+	@Autowired
+	EquipamentoService equipamentoService;
+	
 	
 	@GetMapping(path = "/home")
 	public String telaAtendimentos() {
 		return "Atendimento/home";
 	}
 	
-	@GetMapping(path = "atendimentos/novoatendimento")
-	public String novoAtendimento() {
+	@PostMapping(path = "cadastro")
+	public String novoAtendimento(Model model, @RequestParam(name = "numeroEquipamento") int numeroEquipamento) {
+		
+		model.addAttribute("equipamento", equipamentoService.buscarPorNumero(numeroEquipamento));
+		
 		return "Atendimento/cadastro";
 	}
 	
@@ -41,24 +48,37 @@ public class AtendimentoViewController {
 		return "Atendimento/consultar";
 	}
 	
-	@PostMapping
+	@PostMapping(path = "novo")
 	@ResponseStatus(HttpStatus.CREATED)
-	public void novoAtendimento(
+	public String novoAtendimento(
+			Model model,
 			@RequestParam(name = "equipamento") int numeroEquipamento,
 			@RequestParam(name = "numero") int numero,
-			@RequestParam(name = "dataInicial") LocalDate dataInicial,
-			@RequestParam(name = "dataFinal") LocalDate dataFinal){
-		
-			service.novoAtendimento(numeroEquipamento, numero, dataInicial, dataFinal);					
-		
+			@RequestParam(name = "data") LocalDate data){
+			model.addAttribute("equipamento", equipamentoService.buscarPorNumero(numeroEquipamento));
+			service.novoAtendimento(numeroEquipamento, numero, data);					
+		return "Atendimento/cadastro";
 	}
 	
 	@PostMapping(path = "listar")
 	public String listarAtendimento(
 			Model model,
 			@RequestParam(name = "numeroEquipamento") int numeroEquipamento) {
+		model.addAttribute("equipamento", equipamentoService.buscarPorNumero(numeroEquipamento));
 		model.addAttribute("atendimentos", service.listarAtendimentosPorEquipamento(numeroEquipamento));
 		
+		return "Atendimento/listaPorEquipamento";
+	}
+	
+	@PostMapping(path = "/delete")
+	public String apagarAtendimento(
+			Model model,
+			@RequestParam(name = "id") Long id,
+			@RequestParam(name = "numero")int numero, 
+			@RequestParam(name = "numeroEquipamento") int numeroEquipamento) {
+		service.deleteByNumero(id, numero, numeroEquipamento);
+		model.addAttribute("equipamento", equipamentoService.buscarPorNumero(numeroEquipamento));
+		model.addAttribute("atendimentos", service.listarAtendimentosPorEquipamento(numeroEquipamento));		
 		return "Atendimento/listaPorEquipamento";
 	}
 	

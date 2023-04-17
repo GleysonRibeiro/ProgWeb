@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<th:block th:replace="layoutBase :: head"></th:block>
+	</head>
+	<body>
+		
+		<div class="container-fluid">
+			<div class="row">
+				<header>
+					<div th:replace="layoutBase :: cabecalho"></div>
+				</header>
+				
+				<main class="container-fluid">
+					<h1>Error page</h1>
+				
+					<table>
+						<tr>
+							<td>Date</td>
+							<td th:text="${timestamp}"></td>
+						</tr>
+						<tr>
+							<td>Path</td>
+							<td th:text="${path}"></td>
+						</tr>
+						<tr>
+							<td>Error</td>
+							<td th:text="${error}"></td>
+						</tr>
+						<tr>
+							<td>Status</td>
+							<td th:text="${status}"></td>
+						</tr>
+						<tr>
+							<td>Message</td>
+							<td th:text="${message}"></td>
+						</tr>
+			
+						<tr>
+							<td>Trace</td>
+							<td th:text="${trace}"></td>
+						</tr>
+					</table>					
+					
+
+				</main>
+			</div>
+		</div>
+		
+		<div th:replace="layoutBase :: templates"></div>
+	</body>
+</html>

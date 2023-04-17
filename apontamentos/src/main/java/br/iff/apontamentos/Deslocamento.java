@@ -45,6 +45,16 @@ public class Deslocamento {
 		
 	}
 	
+	public Deslocamento(LocalDate dataInicial, LocalDate dataFinal, LocalTime horaInicial, LocalTime horaFinal, int odometroInicial, int odometroFinal) {
+		this.dataInicial = dataInicial;
+		this.dataFinal = dataFinal;
+		this.horaInicial = horaInicial;
+		this.horaFinal = horaFinal;
+		this.odometroInicial = odometroInicial;
+		this.odometroFinal = odometroFinal;		
+		
+	}
+	
 	public int deslocar(LocalDate dataInicial, LocalDate dataFinal, LocalTime horaInicial, LocalTime horaFinal, int odometroInicial, int odometroFinal) {
 		this.dataInicial = dataInicial;
 		this.dataFinal = dataFinal;
@@ -56,6 +66,64 @@ public class Deslocamento {
 		return this.odometroFinal - this.odometroInicial;		
 		
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getDataInicial() {
+		return dataInicial;
+	}
+
+	public void setDataInicial(LocalDate dataInicial) {
+		this.dataInicial = dataInicial;
+	}
+
+	public LocalTime getHoraInicial() {
+		return horaInicial;
+	}
+
+	public void setHoraInicial(LocalTime horaInicial) {
+		this.horaInicial = horaInicial;
+	}
+
+	public LocalDate getDataFinal() {
+		return dataFinal;
+	}
+
+	public void setDataFinal(LocalDate dataFinal) {
+		this.dataFinal = dataFinal;
+	}
+
+	public LocalTime getHoraFinal() {
+		return horaFinal;
+	}
+
+	public void setHoraFinal(LocalTime horaFinal) {
+		this.horaFinal = horaFinal;
+	}
+
+	public int getOdometroInicial() {
+		return odometroInicial;
+	}
+
+	public void setOdometroInicial(int odometroInicial) {
+		this.odometroInicial = odometroInicial;
+	}
+
+	public int getOdometroFinal() {
+		return odometroFinal;
+	}
+
+	public void setOdometroFinal(int odometroFinal) {
+		this.odometroFinal = odometroFinal;
+	}
+	
+	
 		
 }
 	

@@ -19,7 +19,7 @@ import br.iff.apontamentos.Deslocamento;
 
 public class ControllerDeslocamento {
 	
-	/*@GetMapping("/{id}")
+	@GetMapping("/{id}")
     public String page(@PathVariable("id") int id) {
 		return "Olá Mundo" + id;
 	}
@@ -28,8 +28,8 @@ public class ControllerDeslocamento {
 	public String newRegistroOdometro(
 			@RequestParam(name = "registroodometro") int odometro)
 	{
-		@SuppressWarnings("unused")
-		RegistroOdometro novoDeslocamento = new RegistroOdometro();
+	
+	
 		
 		return "Deslocamento criado:";
 	}
@@ -45,6 +45,6 @@ public class ControllerDeslocamento {
 	@DeleteMapping("/{id}")
 	public String deletarDeslocamento(@RequestParam(name="id") int id) {
 		return "Deslocamento deletado:" + id;
-	}*/
+	}
 
 }

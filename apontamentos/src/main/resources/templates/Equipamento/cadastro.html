@@ -10,21 +10,21 @@
 				<header>
 					<div th:replace="layoutBase :: cabecalho"></div>
 				</header>
-				<div th:replace="layoutBase :: navbar"></div>
-				<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-					<form action="/apirest/equipamento" method="post">
+				
+				<main >
+					<form action="cadastrar" method="post">
 					  <h3>Cadastrar Equipamento</h3>
 					  <div class="form-group">
 					    <label for="formGroupExampleInput"><h5>Número do equipamento</h5></label>
-					    <input type="text" class="form-control" id="numero" aria-describedby="numeroHelp" placeholder="Insira o número do equipamento" pattern="[0-9]{8}" required>
+					    <input type="text" class="form-control" id="numero" name="numero" aria-describedby="numeroHelp" placeholder="Insira o número do equipamento" pattern="[0-9]{8}" required>
 						<small id="numeroHelp" class="form-text text-muted">Insira o número do equipamento que deseja criar (8 dígitos)</small>
 
 					  </div>
 					  <div class="form-group">
 					    <label for="veiculo"><h5>Veículo</h5></label>
-					    <select class="form-control" id="veiculo" name="veiculo" required>
+					    <select class="form-control" id="prefixo" name="prefixo" required>
 					    	<option value="">Selecione um veículo</option>
-					    	<option th:each="veiculo : ${veiculos}" th:value="${veiculo.id}" th:text="${veiculo.prefixo}"></option>
+					    	<option th:each="veiculo : ${veiculos}" th:value="${veiculo.prefixo}" th:text="${veiculo.prefixo}"></option>
 					    </select>
 					    
 					    <small id="veiculoHelp" class="form-text text-muted">Selecione um veículo na lista, se não encontrar utiilize o botão para cadastrar um novo.</small>
@@ -67,9 +67,16 @@
 					  </div>
 					  	<p>
 					  	<p>
-  						<button type="submit" class="btn btn-primary">Cadastrar</button>
+  						<button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalConfirmar" id="btnCadastrar">Cadastrar</button>
+  						
+  						<div>
+						  	<th:block th:replace="layoutBase :: modalConfirmar"></th:block>
+						</div>
 					</form>
 					
+					<div>
+						<th:block th:replace="layoutBase :: modalConfirmarScript"></th:block>
+					</div>
 				</main>
 			</div>
 		</div>

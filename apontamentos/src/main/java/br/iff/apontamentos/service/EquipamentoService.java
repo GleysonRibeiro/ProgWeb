@@ -48,5 +48,20 @@ public class EquipamentoService {
 		
 		return equipamento.obterAtendimentos();
 	}
-
+	
+	public void deleteById(Long id) {
+		repo.deleteById(id);		
+	}
+	
+	public void adicionarAtendimento(int numeroEquipamento, Atendimento atendimento) {
+		Equipamento equipamentoAlterado = this.buscarPorNumero(numeroEquipamento);
+		equipamentoAlterado.adicionarAtendimento(atendimento);
+		this.repo.save(equipamentoAlterado);
+	}
+	
+	public void removerAtendimento(int numeroEquipamento, Atendimento atendimento) {
+		Equipamento equipamentoAlterado = this.buscarPorNumero(numeroEquipamento);
+		equipamentoAlterado.removerAtendimento(atendimento);
+		this.repo.save(equipamentoAlterado);
+	}
 }
