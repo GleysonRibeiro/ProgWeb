@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import br.iff.apontamentos.Veiculo;
-import br.iff.apontamentos.repository.VeiculoRepository;
 import br.iff.apontamentos.service.VeiculoService;
 
 

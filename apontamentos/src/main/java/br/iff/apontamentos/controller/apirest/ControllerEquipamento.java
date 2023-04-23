@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.Veiculo;
-import br.iff.apontamentos.repository.EquipamentoRepository;
-import br.iff.apontamentos.repository.VeiculoRepository;
 import br.iff.apontamentos.service.EquipamentoService;
 
 @RestController

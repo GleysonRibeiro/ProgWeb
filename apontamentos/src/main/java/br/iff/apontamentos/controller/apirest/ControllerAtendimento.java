@@ -27,6 +27,7 @@ import br.iff.apontamentos.service.AtendimentoService;
 
 public class ControllerAtendimento {
 	
+	@SuppressWarnings("unused")
 	@Autowired
 	private AtendimentoService service;
 	
