@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import br.iff.apontamentos.Atendimento;
 import br.iff.apontamentos.Deslocamento;
-import br.iff.apontamentos.Equipamento;
 import br.iff.apontamentos.repository.AtendimentoRepository;
 
 @Service
