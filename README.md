@@ -1,21 +1,30 @@
-# Projeto de apontamentos
-Este projeto está sendo desenvolvido com intuito acadêmico para a disciplina de Programação para Web no Instituto Federal Fluminense. O objetivo deste sistema é registrar viagens de uma frota de ônibus.
+# 🚗 Apontamentos de KM - Programação Web
 
-# Descrição do projeto
-O sistema deverá registrar as quilometragens das viagens realizadas por uma determnada frota de ônibus, fornecendo relatórios que possibilitem entregas ao contratante no modelo pré determinado.
+Projeto desenvolvido para fins acadêmicos como parte da disciplina de **Programação Web**. A aplicação tem como objetivo principal o controle e registro de quilometragem de veículos, oferecendo uma interface web amigável para gestão de deslocamentos.
 
-# Diagrama de classes
+## 🛠️ Tecnologias Utilizadas
 
-![Diagrama de classes](https://github.com/GleysonRibeiro/ProgWeb/blob/6775ebeed50ca6c4862e3440c20af626e2dd6b79/docs/apontamentos.drawio.png)
+* **Backend:** Java com **Spring Boot** (Spring MVC, Spring Data JPA).
+* **Frontend:** **Thymeleaf** (Engine de template para renderização no lado do servidor).
+* **Persistência de Dados:** Banco de dados relacional com suporte a JPA/Hibernate.
+* **Ferramenta de Build:** Maven ou Gradle.
 
-# Restrições
-![Restrições da classe Equipamento](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7oes_Equipamento.PNG)
+## 📝 Funcionalidades
 
-![Restrições da classe veículo](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7%C3%B5es_Veiculo.PNG)
+- Cadastro e listagem de apontamentos de KM.
+- Cálculo automático de distâncias ou consumos (se aplicável).
+- Interface responsiva integrada com o backend Spring.
+- Validação de dados de entrada para garantir a integridade dos registros.
 
-![Restrições da classe Atendimento](https://github.com/GleysonRibeiro/ProgWeb/blob/a416f965b00f73c8281829bf35a28b43a1343e38/docs/restri%C3%A7%C3%B5es_Atendimento.PNG)
+## 🚀 Arquitetura e Conceitos
 
-# Relacionamentos
+O projeto demonstra o uso de tecnologias amplamente adotadas no mercado corporativo:
+1. **Spring Boot:** Agilidade no desenvolvimento e configuração simplificada da aplicação.
+2. **Padrão MVC:** Separação clara entre a lógica de negócio (Model), o controle de rotas (Controller) e a visualização (View/Thymeleaf).
+3. **Desenvolvimento Web:** Manipulação de requisições HTTP, gestão de sessões e integração com banco de dados.
 
-O objeto Equipamento deve estar relacionado de 1 para 1 com o objeto Veiculo. O objeto Atendimento deve estar relacionado de n para 1 ao objeto Equipamento.
+## 🔧 Como Executar
 
+1. Clone o repositório:
+   ```bash
+   git clone [https://github.com/GleysonRibeiro/ProgWeb.git](https://github.com/GleysonRibeiro/ProgWeb.git)
